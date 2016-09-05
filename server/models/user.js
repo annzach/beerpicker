@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
+  email:{type:String,required:true,unique:true},
   password: { type: String, required: true },
   name:{type:String},
   age:{type:Number},
@@ -36,9 +37,9 @@ userSchema.statics.register = function(userObj, cb) {
 };
 
 userSchema.statics.authenticate = function(userObj, cb) {
-  let { username, password } = userObj;
+  let { email, password } = userObj;
 
-  this.findOne({ username }, (err, dbUser) => {
+  this.findOne({ email }, (err, dbUser) => {
     if(err || !dbUser) {
       return cb(err || {error: 'Login failed.  Username or password incorrect.'});
     }

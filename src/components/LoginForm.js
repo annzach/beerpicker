@@ -6,7 +6,7 @@ export default class LoginForm extends Component {
     super();
 
     this.state = {
-      username: '',
+      email: '',
       password: ''
     }
     this._onInputChange = this._onInputChange.bind(this);
@@ -29,14 +29,14 @@ export default class LoginForm extends Component {
   }
 
   render() {
-    let { username, password } = this.state;
+    let { email, password } = this.state;
 
     return (
       <div>
         <form onSubmit={this._submit}>
           <div className="form-group">
-            <label>Username</label>
-            <input type="text" className="form-control" placeholder="Username" required value={username} data-statekey='username' onChange={this._onInputChange}/>
+            <label>Email</label>
+            <input type="text" className="form-control" placeholder="Email" required value={email} data-statekey='email' onChange={this._onInputChange}/>
           </div>
           <div className="form-group">
             <label>Password</label>
