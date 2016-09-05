@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events'
 import AppDispatcher from '../AppDispatcher'
 import UserActions from '../actions/UserActions'
+import ServerActions from '../actions/ServerActions'
 import Constants from '../Constants'
 
 let _profile = null;
@@ -23,6 +24,9 @@ let _profile = null;
         case Constants.EDIT_PROFILE:
             this.emit('CHANGE');
             break;
+        case Constants.RECEIVE_RESULTS:
+              this.emit('CHANGE');
+              break;
 
 
       }

@@ -1,7 +1,9 @@
 import axios from 'axios'
+import AppDispatcher from './AppDispatcher'
 import RouteActions from './actions/RouteActions'
 import UserActions from './actions/UserActions'
 import ServerActions from './actions/ServerActions'
+import SearchActions from './actions/SearchActions'
 
 const API = {
   register(user) {
@@ -42,6 +44,21 @@ const API = {
          .then(ServerActions.receiveProfile)
          .catch(console.error);
 
+  },
+   search(){
+    console.log("inside API search");
+    axios.get(`api/beers/`)
+    .then(response =>{
+     console.log('APILookup:', response.data)
+      return response.data;
+    })
+    .then(results =>{
+      AppDispatcher.dispatch({
+        type:'RECEIVE_RESULTS',
+        results
+      })
+    })
+    .catch(err =>console.log(err));
   }
 
 }

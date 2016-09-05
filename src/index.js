@@ -9,6 +9,7 @@ import LoginPage from './components/LoginPage'
 import Profile from './components/Profile'
 import ProfileView from './components/ProfileView'
 import UserProfile from './components/UserProfile'
+import PickBeer from './components/PickBeer'
 
 
 
@@ -23,6 +24,7 @@ render(
       <IndexRoute component={Splash} />
 
       <Route path='/register' component={RegisterPage}/>
+      <Route path ='/pickbeer' component ={PickBeer}/>
       <Route path='/login' component={LoginPage}/>
       <Route path='/profile'component={Profile}/>
       <Route path='/profileview' component ={ProfileView}/>
